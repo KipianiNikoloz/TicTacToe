@@ -43,7 +43,7 @@ This is a Python-based implementation of the classic Tic-Tac-Toe game. It includ
 # How to Play
 
 ### Run the Game:
-Execute `main.py` to start the program.
+Execute `run.py` to start the program.
 
 ### Select Mode:
 Choose between:
@@ -51,7 +51,7 @@ Choose between:
 - Playing against the AI.
 
 ### Input Moves:
-Enter the row and column index for your move (e.g., `1 2` for row 1, column 2).
+Select on the on-screen gris a position.
 
 ### View Results:
 After each game:
@@ -59,6 +59,11 @@ After each game:
 - View or search the leaderboard.
 
 # Code Structure
+
+### run.py
+- starts and threads 'app.py' and 'main.py' as subprocesses and opens the website
+
+## backend
 
 ### `main.py`:
 - Entry point for the program.
@@ -77,6 +82,16 @@ After each game:
 - Reusable helper functions are implemented in the helper module.
 - Sorting algorithms in the `algos` module (e.g., quicksort).
 
+## Frontend
+
+### `app.py`:
+- creates the python server used to host the website and stores the fetch 'GET' and 'POST' functions
+
+### Website setup:
+- **`index.html`**: Formats the website.
+- **`style.css`**: stores the .css styles used in index.html.
+- **`main.js`**: Stores the necessary javascript functions
+
 # Algorithms Used
 
 ### Greedy Algorithm:
@@ -90,6 +105,15 @@ The AI evaluates moves based on a priority:
 Used for sorting the leaderboard and game history.
 
 # Time Complexities
+
+### thread functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `run_script()`	              | O(1)           | O(1)           | O(1)          | 
+| `__main__`	                 | O(1)           | O(1)           | O(1)          | 
+
+## Backend functions 
 
 ### Game Functions
 
@@ -136,6 +160,69 @@ Used for sorting the leaderboard and game history.
 |----------------------|----------------|----------------|---------------|
 | `home_screen`         | O(1)           | O(1)           | O(1)          |
 | `play_game`           | O(1)           | O(n)           | O(n)          |
+
+## Frontend functions 
+
+### Display website functions
+
+| Function Name                | Best Case      | Average Case  | Worst Case    |
+|------------------------------|----------------|----------------|---------------|
+| `turn_change(event)`          | O(1)           | O(1)           | O(1)          |
+| `make_grid(event)`            | O(9)           | O(9)           | O(9)          |
+| `grid_hover_see(event)`       | O(1)           | O(1)           | O(1)          |
+| `grid_hover_end(event)`       | O(1)           | O(1)           | O(1)          |
+| `set_params(event)`           | O(1)           | O(1)           | O(1)          |
+
+### Modify Display functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `hide(id)`                    | O(1)           | O(1)           | O(1)          |
+| `show(id)`                    | O(1)           | O(1)           | O(1)          |
+| `change(id1, id2)`            | O(1)           | O(1)           | O(1)          |
+
+### Json functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `modifyJsonFile(key, value)`  | O(1)           | O(1)           | O(1)          |
+| `getJsonFile()`               | O(1)           | O(1)           | O(1)          |
+
+### Display popup functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `PVP()`                       | O(1)           | O(1)           | O(1)          |
+| `PVAI()`                      | O(1)           | O(1)           | O(1)          |
+| `Scoreboard()`                | O(1)           | O(n)           | O(n)          |
+| `History()`                   | O(1)           | O(n)           | O(n)          |
+| `show_end_popup()`            | O(1)           | O(1)           | O(1)          |
+| `go_back_end()`               | O(1)           | O(1)           | O(1)          |
+| `go_back_scoreboard()`        | O(1)           | O(1)           | O(1)          |
+| `go_back_history()`           | O(1)           | O(1)           | O(1)          |
+
+### Search button functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `search_history()`            | O(1)           | O(n)           | O(n)          |
+| `search_scoreboard()`         | O(1)           | O(n)           | O(n)          |
+
+### Set player functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `set_playerAI()`              | O(1)           | O(1)           | O(1)          |
+| `set_player1()`               | O(1)           | O(1)           | O(1)          |
+| `set_player2()`               | O(1)           | O(1)           | O(1)          |
+
+### app functions
+
+| Function             | Best Case      | Average Case  | Worst Case    |
+|----------------------|----------------|----------------|---------------|
+| `index()`                     | O(1)           | O(1)           | O(1)          | 
+| `modify_json()`               | O(1)           | O(1)           | O(1)          | 
+| `get_json_data()`             | O(1)           | O(1)           | O(1)          |
 
 
 # Acknowledgments
